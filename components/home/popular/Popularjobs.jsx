@@ -8,7 +8,7 @@ import PopularJobCard from '../../common/cards/popular/PopularJobCard';
 import useFetch from '../../../hook/useFetch';
 const Popularjobs = ({navigation, data, isLoading, error}) => {
 
-
+ 
   const handleCardPress = (job) => {
    
     navigation.navigate(`About`, {

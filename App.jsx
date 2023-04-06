@@ -9,105 +9,30 @@ import {
 import { COLORS, icons, images } from './constants';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScreenHeaderBtn, Welcome } from './components';
-import About from './components/jobdetails/about/About';
-import SearchJob from './components/search/search';
+import PrivateRoute from './components/routes/private_routes';
+import PublicRoutes from './components/routes/public_routes';
 
 const Stack = createNativeStackNavigator();
 
 function App({ navigation }) {
   const [fontsLoaded, setFontsLoaded] = React.useState(true);
 
+  const [login, setLogin] = React.useState(false)
+
   return (
     <SafeAreaView style={{
       backgroundColor: COLORS.lightWhite,
       flex: 1
     }}>
-
       {
         fontsLoaded === true ?
           <NavigationContainer>
-            <Stack.Navigator
-              initialRouteName='Welcome'
-            >
-              <Stack.Screen options={{
-                headerStyle: {
-                  backgroundColor: COLORS.lightWhite,
-                },
-                headerShadowVisible: false,
-                headerLeft: () => (
-                  <ScreenHeaderBtn
-                    handlePress={() => {
-                      
-                    }}
-                    iconUrl={icons.menu}
-                    dimension={"60%"} />
-                ),
-                headerRight: () => (
-                  <ScreenHeaderBtn
-                    handlePress={() => {
-
-                    }}
-                    iconUrl={images.user}
-                    dimension={"100%"} />
-                )
-              }} name='Welcome' component={Welcome} />
-
-              <Stack.Screen options={{
-                headerStyle: {
-                  backgroundColor: COLORS.lightWhite,
-                },
-                headerShadowVisible: false,
-                headerBackVisible : false,
-                headerLeft : () =>(
-                  <ScreenHeaderBtn 
-                  iconUrl={icons.left} 
-                  dimension="60%"
-                  handlePress={() => {
-                    // navigation.navigate("Welcome")
-                  }} />
-                ),
-                headerTitle : "",
-                headerRight : () =>(
-                  <ScreenHeaderBtn 
-                  iconUrl={icons.share} 
-                  dimension="60%"
-                  handlePress={() => {
-                    // navigation.navigate("Welcome")
-                  }} />
-                )
-                
-              }}
-                name='About' component={About} />
-
-                <Stack.Screen
-                options={{
-                  headerStyle : {
-                    backgroundColor : COLORS.lightWhite
-                  },
-                  headerShadowVisible: false,
-                headerBackVisible : false,
-                headerLeft : () =>(
-                  <ScreenHeaderBtn 
-                  iconUrl={icons.left} 
-                  dimension="60%"
-                  handlePress={() => {
-                    // navigation.navigate("Welcome")
-                  }} />
-                ),
-                headerTitle : "",
-                headerRight : () =>(
-                  <ScreenHeaderBtn 
-                  iconUrl={icons.share} 
-                  dimension="60%"
-                  handlePress={() => {
-                    // navigation.navigate("Welcome")
-                  }} />
-                )
-                }} 
-                name='Search' component={SearchJob}
-                />
-            </Stack.Navigator>
+            {
+              login ?
+                <PrivateRoute setLogin={setLogin} />
+                :
+                <PublicRoutes setLogin={setLogin} />
+            }
 
           </NavigationContainer>
           :
