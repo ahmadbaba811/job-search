@@ -20,8 +20,8 @@ const Stack = createNativeStackNavigator();
 function PrivateRoute({ setLogin }) {
     const NavigatorScreenArray = [
         { route: 'Landing', name: 'Home', icon: icons.menu, component: LandingScreen, props: setLogin },
-        { route: 'About', name: 'About', icon: icons.heart, component: JobAboutComponent, props: setLogin },
-        { route: 'Search', name: 'Search', icon: icons.search, component: LandingScreen, props: setLogin }
+        { route: 'About', name: 'About', icon: icons.heart, component: About, props: setLogin },
+        { route: 'Search', name: 'Search', icon: icons.search, component: SearchJob, props: setLogin }
     ]
 
 
