@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import LandingScreen from '../home/welcome/landing'
 import CustomDrawer from '../common/custom-drawer/drawer'
+import { JobAboutComponent } from '../jobdetails/about/job-about'
 
 const Drawer = createDrawerNavigator();
 
@@ -19,8 +20,8 @@ const Stack = createNativeStackNavigator();
 function PrivateRoute({ setLogin }) {
     const NavigatorScreenArray = [
         { route: 'Landing', name: 'Home', icon: icons.menu, component: LandingScreen, props: setLogin },
-        { route: 'About', name: 'About', icon: icons.menu, component: LandingScreen, props: setLogin },
-        { route: 'Search', name: 'Search', icon: icons.menu, component: LandingScreen, props: setLogin }
+        { route: 'About', name: 'About', icon: icons.heart, component: JobAboutComponent, props: setLogin },
+        { route: 'Search', name: 'Search', icon: icons.search, component: LandingScreen, props: setLogin }
     ]
 
 
