@@ -12,7 +12,7 @@ const SearchJob = ({ navigation, route }) => {
 
     const { data, isLoading, error, refetch } = useFetch(
         'search',
-        { query: route.params.searchTerm, page: "1", num_page: "1" }
+        { query: route.params.searchTerm ? route.params.searchTerm : "react", page: "1", num_page: "1" }
     )
     const [searchResult, setSearchResult] = useState(data)
 

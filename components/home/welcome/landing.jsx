@@ -12,28 +12,32 @@ function LandingScreen({ setLogin }) {
     return (
         <Stack.Navigator
             initialRouteName='Welcome' >
-            <Stack.Screen name='Welcome' component={Welcome} options={{
-                headerStyle: {
-                    backgroundColor: COLORS.lightWhite,
-                },
-                headerShadowVisible: false,
-                headerLeft: () => (
-                    <ScreenHeaderBtn
-                        handlePress={() => {
+            <Stack.Screen
+                name='Welcome'
+                component={Welcome}
+                options={{
+                    headerStyle: {
+                        backgroundColor: COLORS.lightWhite,
+                    },
+                    headerShadowVisible: false,
+                    headerShown:false,
+                    // headerLeft: () => (
+                    //     <ScreenHeaderBtn
+                    //         handlePress={() => {
 
-                        }}
-                        iconUrl={icons.menu}
-                        dimension={"60%"} />
-                ),
-                headerRight: () => (
-                    <ScreenHeaderBtn
-                        handlePress={() => {
-                            setLogin(false)
-                        }}
-                        iconUrl={images.user}
-                        dimension={"100%"} />
-                )
-            }}
+                    //         }}
+                    //         iconUrl={icons.menu}
+                    //         dimension={"60%"} />
+                    // ),
+                    // headerRight: () => (
+                    //     <ScreenHeaderBtn
+                    //         handlePress={() => {
+                    //             setLogin(false)
+                    //         }}
+                    //         iconUrl={images.user}
+                    //         dimension={"100%"} />
+                    // )
+                }}
             />
 
             <Stack.Screen options={{
